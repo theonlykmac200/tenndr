@@ -21,7 +21,7 @@ db.on("disconnected", () => console.log("mongo disconnected"))
 //middleware
 app.use(express.urlencoded({extended: true}))
 app.use(methodOverride("_method"))
-app.use("/", tenndrController)
+app.use("/tenndr", tenndrController)
 app.use(express.static("public"))
 
 
