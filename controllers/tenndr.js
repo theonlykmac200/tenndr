@@ -4,17 +4,20 @@ const Tenndr = require("../models/tenndr")
 
 // index
 tenndrRouter.get("/", (req, res) => {
-    res.render("index.ejs")
+    Tenndr.find({}, (err, foundTenndr) => {
+    res.render("index_workouts.ejs", {
+        tenndr: foundTenndr})
+    })
 })
+
 // new
 tenndrRouter.get("/new", (req, res) => {
-    res.render("new.ejs")
+    res.render("new_workout.ejs")
 })
 //delete
 tenndrRouter.delete("/:id", (req, res) => {
     Tenndr.findByIdAndRemove(req.params.id, (err, deletedWorkout) => {
         res.redirect("/tenndr")
-        console.log(err)
     })
 })
 
@@ -46,7 +49,9 @@ tenndrRouter.get("/:id/edit", (req, res) => {
 
 //show
 tenndrRouter.get("/:id", (req, res) => {
-    res.send("At tea time everyone agrees")
+    Tenndr.findById(req.params.id, (err, foundWorkout) => {
+    res.render("show_workout.ejs", {tenndr: foundWorkout})
+})
 })
 
 module.exports = tenndrRouter;
