@@ -44,7 +44,11 @@ tenndrRouter.post("/", (req, res) => {
 
 //edit
 tenndrRouter.get("/:id/edit", (req, res) => {
-    res.send("I'll stare directly in the sun")
+    Tenndr.findById(req.params.id, (err, foundWorkout) => {
+        res.render("edit_workout.ejs", {
+            tenndr: foundWorkout
+        })
+    })
 })
 
 //show

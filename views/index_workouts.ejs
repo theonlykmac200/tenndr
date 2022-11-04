@@ -5,7 +5,10 @@
 <!--[if gt IE 8]>      <html class="no-js"> <![endif]-->
 <html>
     <body>
-        <h1>Workouts</h1>
+        <h1>Workout Dashboard</h1>
+        
+        <h2> Workout history</h2>
+        
         <div>
             <ul>
                 <% for (var i = 0; i < tenndr.length; i++) { %>
@@ -15,6 +18,18 @@
                         </a>
                     </li>
                 <% } %>
+            </ul>
+        </div>
+        <div>
+          <h2>Post Workout Mood</h2>
+            <ul>
+              <% for (var i = 0; i < tenndr.length; i++) { %>
+                  <li>
+                      <a href="/tenndr/<%= tenndr[i]._id %>">
+                          <%= tenndr[i].mood_after %>
+                      </a>
+                  </li>
+                  <% } %>
             </ul>
 
 
