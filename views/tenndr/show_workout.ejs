@@ -15,30 +15,27 @@
 </head>
 
 <body>
-    <!--[if lt IE 7]>
-            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
     <h1>
-        <%=tenndr.workout%>
+   <%=tenndr.workout%>
     </h1>
-    <div>
-        <h2>
-            <%=tenndr.description%>
-        </h2>
-        <h2>
-            <%=tenndr.duration%>
-        </h2>
-        <h2>
-            <%=tenndr.mood_before%>
-        </h2>
-        <h2>
-            <%=tenndr.mood_after%>
-        </h2>
-        <h2>
-            <%=tenndr.day_of_week%>
-        </h2>
-        <h2>
-            <%=tenndr.time_of_day%>
+    <h1>
+        <%=tenndr.description%>
+    </h1>
+    <h1>
+        <%=tenndr.duration%>
+    </h1>
+    <h1>
+        <%=tenndr.mood_before%>
+    </h1>
+    <h1>
+        <%=tenndr.mood_after%>
+    </h1>
+    <h1>
+    <%=tenndr.day_of_week%>
+</h1>
+<h1>
+    <%=tenndr.time_of_day%>
+</h1>
         </h2>
         <button><a class="waves-effect amber waves-light btn" href="/tenndr/<%=tenndr._id%>/edit"><span class="purple-text darken-3">Edit</span></a></button>
         <form action="/tenndr/<%=tenndr._id%>?_method=DELETE" method="POST">

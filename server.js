@@ -1,8 +1,13 @@
 const express = require("express")
 const app = express()
 const mongoose = require("mongoose")
+const session = require("express-session")
 const methodOverride = require("method-override")
 const tenndrController = require("./controllers/tenndr")
+const userController = require("./controllers/users")
+const sessionController = require("./controllers/sessions")
+
+
 
 require("dotenv").config()
 const PORT = process.env.PORT
@@ -20,9 +25,29 @@ db.on("disconnected", () => console.log("mongo disconnected"))
 
 //middleware
 app.use(express.urlencoded({extended: true}))
+app.use(
+  session({
+    secret: process.env.SECRET,
+    resave: false,
+    saveUninitialized: false,
+  })
+)
 app.use(methodOverride("_method"))
 app.use("/tenndr", tenndrController)
+app.use("/users", userController)
+app.use("/sessions", sessionController)
 app.use(express.static("public"))
+
+//routes / controllers
+
+// const tenndrController = require("./controllers/tenndr");
+// app.use("/tenndr", tenndrController);
+
+// const userController = require("./controllers/users");
+// app.use("/users", userController);
+
+// const sessionController = require("./controllers/sessions");
+// app.use("/sessions", sessionController);
 
 
 app.listen(PORT, () => {
