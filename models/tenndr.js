@@ -7,7 +7,7 @@ const tenndrSchema = new mongoose.Schema({
     difficulty: {type: String, require: true},
     mood_before: {type: String, require: false},
     mood_after: {type: String, require: false},
-    day_of_week: {type: String, require: true},
+    date: { type: Date, default: Date.now },
     time_of_day: {type: String, require: true},
 })
 

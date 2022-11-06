@@ -26,8 +26,8 @@
             <input type="text" name="mood_before" value="<%=tenndr.mood_before%>" />
             <label for="mood_after">Mood After</label>
             <input type="text" name="mood_after" value="<%=tenndr.mood_after%>" />
-            <label for="day_of_week">Day of Week</label>
-            <input type="text" name="day_of_week" value="<%=tenndr.day_of_week%>" />
+            <label for="day_of_week">Date</label>
+            <input type="text" name="date" value="<%=tenndr.date%>" />
             <label for="time_of_day">Time of Day</label>
             <input type="text" name="time_of_day" value="<%=tenndr.time_of_day%>" />
             <input type="submit" name="" value="Update" />
@@ -35,6 +35,9 @@
         
     </div>
     <button><a href="/tenndr">Go Home</a></button>
+    <form action="/sessions?_method=DELETE" method="POST">
+        <input type="submit" value="Log Out" />
+    </form>
 </body>
 
 </html>

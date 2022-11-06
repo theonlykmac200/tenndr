@@ -13,10 +13,10 @@
                 <span class="bolded">workout:</span><input type="text" name="workout" /><br />
                 <span class="bolded">Description:</span><input type="text" name="description" /><br />
                 <span class="bolded">duration:</span><input type="number" name="duration" /><br />
-                <span class="bolded">mood_before:</span><input type="text" name="mood_before" /><br />
-                <span class="bolded">mood_after:</span><input type="text" name="mood_after" /><br />
-                <span class="bolded">day_of_week:</span><input type="text" name="day_of_week" /><br />
-                <span class="bolded">time_of_day:</span><input type="text" name="time_of_day" /><br />
+                <span class="bolded">Mood_before:</span><input type="text" name="mood_before" /><br />
+                <span class="bolded">Mood_after:</span><input type="text" name="mood_after" /><br />
+                <span class="bolded">Date:</span><input type="text" name="date" /><br />
+                <span class="bolded">Time_of_day:</span><input type="text" name="time_of_day" /><br />
                 
 
     
@@ -26,5 +26,8 @@
             </form>
         </div>
         <button><a href="/tenndr">Go Home</a></button>
+        <form action="/sessions?_method=DELETE" method="POST">
+            <input type="submit" value="Log Out" />
+        </form>
        
     </body>

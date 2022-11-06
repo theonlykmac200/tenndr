@@ -4,20 +4,46 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>MEEN Auth Starter</title>
+    <title>Sign In</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="./style.css" />
+    <style>
+      body {
+        margin: 50px 100px;
+        background-color: rgb(2, 76, 2);
+        color: white;
+      }
+      .row {
+        position: fixed;
+        top: 60%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+      h1{
+        margin: center;
+        text-align: center;
+      }
+      button {
+        margin-top: 3px;
+      }
+    </style>
   </head>
 
   <body>
+    <div class="logo-container">
+      <img src="./img/tenndr_logo.png" alt="logo" height="100px" width="200px"/>
+    </div>
   
     <h1>Login</h1>
-    <form action="/sessions" method="POST">
+    <div class="row">
+      <form action="/sessions" method="POST">
         <label for="username">Username:</label>
-        <input type="text" name="username" id="username" />
-        
-      <label for="password">Password:</label>
-      <input type="password" name="password" id="password" />
-
-      <input type="submit" value="Login" />
-    </form>
+        <input type="text" name="username" id="username" /></br>
+        <label for="password">Password:</label>
+        <input type="password" name="password" id="password"/></br>
+        <input class ="waves-effect amber waves-light btn" type="submit" value="Login" />
+      </form>
+      <button class ="waves-effect amber waves-light btn"><a href="/users/new">Sign Up</a></button>
+    </div>
   </body>
 </html>
