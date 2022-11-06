@@ -1,28 +1,52 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]>      <html class="no-js"> ![endif]-->
 <html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+        <link rel="stylesheet" href="./style.css" />
+        <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+        <style>
+            body {
+              margin: 50px 100px;
+              background-color: rgb(2, 76, 2);
+              color: white;
+            }
+            .row {
+              position: fixed;
+              top: 60%;
+              left: 50%;
+              transform: translate(-50%, -50%);
+            }
+            h1{
+              margin: center;
+              text-align: center;
+            }
+          </style>
+    </head>
+    <body>    
+        <div class="logo-container">
+            <img src="./img/tenndr_logo.png" alt="logo" height="100px" width="200px"/>
+        </div>
+    
 
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title></title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="">
-</head>
-
-<body>
     <h1>
-   <%=tenndr.workout%>
+        <%=tenndr.workout%>
+    </h1>
+    <h1>
+        <%=tenndr.sets%>
+    </h1>
+    <h1>
+        <%=tenndr.reps%>
     </h1>
     <h1>
         <%=tenndr.description%>
     </h1>
     <h1>
-        <%=tenndr.duration%>
+        <%=tenndr.duration_in_mins%>
     </h1>
     <h1>
         <%=tenndr.mood_before%>
@@ -30,19 +54,13 @@
     <h1>
         <%=tenndr.mood_after%>
     </h1>
-    <h1>
-    <%=tenndr.date%>
-</h1>
-<h1>
-    <%=tenndr.time_of_day%>
-</h1>
         </h2>
-        <button><a class="waves-effect amber waves-light btn" href="/tenndr/<%=tenndr._id%>/edit"><span class="purple-text darken-3">Edit</span></a></button>
-        <form action="/tenndr/<%=tenndr._id%>?_method=DELETE" method="POST">
+        <a class="waves-effect amber waves-light btn" href="/tenndr/<%=tenndr._id%>/edit"><span class="purple-text darken-3">Edit</span></a>
+        <form class="waves-effect amber waves-light btn" action="/tenndr/<%=tenndr._id%>?_method=DELETE" method="POST">
             <input type="submit" name="" value="Delete" />
         </form>
-        <button><a href="/tenndr">Go Home</a></button>
-        <form action="/sessions?_method=DELETE" method="POST">
+        <button class="waves-effect amber waves-light btn"><a href="/tenndr">Go Home</a></button>
+        <form class="waves-effect amber waves-light btn" action="/sessions?_method=DELETE" method="POST">
             <input type="submit" value="Log Out" />
         </form>
     </div>

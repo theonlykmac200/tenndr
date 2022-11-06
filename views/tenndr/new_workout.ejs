@@ -1,23 +1,41 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]>      <html class="no-js"> <![endif]-->
-<html>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+<link rel="stylesheet" href="./style.css" />
 
-    <body>
+</head>
 
+<body>
+
+<div class="logo-container">
+<img src="./img/tenndr_logo.png" alt="logo" height="200px" width="350px"/>
         <h1>New Workout</h1>
-        <div>
+        <div class="container">
+            <div class="row">
             <form action="/tenndr" method="POST">
-                <span class="bolded">workout:</span><input type="text" name="workout" /><br />
+               <a href="#" class="dropdown-button btn" data-ctivates="my_data" ></a> <span class="bolded">Workout Focus Area:</span><input type="text" name="workout" /><br />
+               <ul class="dropdown-content" id="my_data">
+                <li><a href="#!">Cardio</a></li>
+                <li><a href="#!">Strength</a></li>
+                <li><a href="#!">Flexibility</a></li>
+                <li><a href="#!">Balance</a></li>
+                <li><a href="#!">Endurance</a></li>
+                <li><a href="#!">Power</a></li>
+                <li><a href="#!">Speed</a></li>
+                <li><a href="#!">Coordination</a></li>
+                <li><a href="#!">Agility</a></li>
+                <li><a href="#!">Reaction Time</a></li>
+                <li><a href="#!">Stamina</a></li>
+                <li><a href="#!">Muscle Tone</a></li>
+               </ul>
+
+                <span class="bolded">Sets:</span><input type="text" name="sets" /><br />
+                <span class="bolded">Reps:</span><input type="text" name="reps" /><br />
                 <span class="bolded">Description:</span><input type="text" name="description" /><br />
-                <span class="bolded">duration:</span><input type="number" name="duration" /><br />
+                <span class="bolded">Duration:</span><input type="number" name="duration_in_mins" /><br />
                 <span class="bolded">Mood_before:</span><input type="text" name="mood_before" /><br />
                 <span class="bolded">Mood_after:</span><input type="text" name="mood_after" /><br />
-                <span class="bolded">Date:</span><input type="text" name="date" /><br />
-                <span class="bolded">Time_of_day:</span><input type="text" name="time_of_day" /><br />
                 
+            </div>    
 
     
                 <input type="submit" name="" value="Add Workout"/>
@@ -30,4 +48,9 @@
             <input type="submit" value="Log Out" />
         </form>
        
+
+
+
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     </body>
