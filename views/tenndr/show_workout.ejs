@@ -43,9 +43,6 @@
         <%=tenndr.reps%>
     </h1>
     <h1>
-        <%=tenndr.description%>
-    </h1>
-    <h1>
         <%=tenndr.duration_in_mins%>
     </h1>
     <h1>
@@ -54,6 +51,9 @@
     <h1>
         <%=tenndr.mood_after%>
     </h1>
+    <h1>
+      <%=tenndr.description%>
+  </h1>
         </h2>
         <a class="waves-effect amber waves-light btn" href="/tenndr/<%=tenndr._id%>/edit"><span class="purple-text darken-3">Edit</span></a>
         <form class="waves-effect amber waves-light btn" action="/tenndr/<%=tenndr._id%>?_method=DELETE" method="POST">

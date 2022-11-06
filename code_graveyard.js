@@ -121,3 +121,47 @@ myChart.config.data.datasets[0].label = labelname.value
 myChart.update();
 }
 </script>
+
+
+//dropdown menu for workout type
+<a href="#" class="dropdown-button btn" data-activates="my_data" ></a> <span class="bolded">Workout Focus Area:
+
+<ul class="dropdown-content" id="my_data">
+                <li><a href="#!">Cardio</a></li>
+                <li><a href="#!">Strength</a></li>
+                <li><a href="#!">Flexibility</a></li>
+                <li><a href="#!">Balance</a></li>
+                <li><a href="#!">Endurance</a></li>
+                <li><a href="#!">Power</a></li>
+                <li><a href="#!">Speed</a></li>
+                <li><a href="#!">Coordination</a></li>
+                <li><a href="#!">Agility</a></li>
+                <li><a href="#!">Reaction Time</a></li>
+                <li><a href="#!">Stamina</a></li>
+                <li><a href="#!">Muscle Tone</a></li>
+               </ul>
+
+
+{/* /* //for db */ */}
+<h1>
+        <%=tenndr.sets%>
+    </h1>
+    <h1>
+        <%=tenndr.reps%>
+    </h1>
+
+    <h1>
+                <%=tenndr.workout%>
+            </h1>
+            <h1>
+                <%=tenndr.description%>
+            </h1>
+            <h1>
+                <%=tenndr.duration_in_mins%>
+            </h1>
+            <h1>
+                <%=tenndr.mood_before%>
+            </h1>
+            <h1>
+                <%=tenndr.mood_after%>
+            </h1>

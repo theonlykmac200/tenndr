@@ -7,7 +7,32 @@
     <title></title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="">
+    <title>Tenndr:Be Tenndr With Yourself</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="./style.css" />
+    <style>
+      body {
+        margin: 50px 100px;
+        background-color: rgb(2, 76, 2);
+        color: white;
+      }
+      .row {
+        position: fixed;
+        top: 60%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+      h1{
+        margin: center;
+        text-align: center;
+        font-size: 35px;
+      }
+      .notes-box{
+        width: 500px;
+        height: 200px;
+      }
+    </style>
+  
 </head>
 
 <body>
@@ -16,20 +41,16 @@
     </h1>
     <div>
         <form action="/tenndr/<%=tenndr._id%>?_method=PUT" method="POST">
-            <label for="workout">Workout</label>
+            <label for="workout">Workout Focus Area:</label>
             <input type="text" name="workout" value="<%=tenndr.workout%>" />
-            <label for="description">Description</label>
-            <input type="text" name="description" value="<%=tenndr.description%>" />
-            <label for="duration">Duration</label>
-            <input type="text" name="duration" value="<%=tenndr.duration%>" />
-            <label for="mood_before">Mood Before</label>
+            <label for="duration">Duration:</label>
+            <input type="text" name="duration_in_mins" value="<%=tenndr.duration_in_mins%>" />
+            <label for="mood_before">Mood Before:</label>
             <input type="text" name="mood_before" value="<%=tenndr.mood_before%>" />
-            <label for="mood_after">Mood After</label>
+            <label for="mood_after">Mood After:</label>
             <input type="text" name="mood_after" value="<%=tenndr.mood_after%>" />
-            <label for="day_of_week">Date</label>
-            <input type="text" name="date" value="<%=tenndr.date%>" />
-            <label for="time_of_day">Time of Day</label>
-            <input type="text" name="time_of_day" value="<%=tenndr.time_of_day%>" />
+            <label for="description">Notes:</label>
+            <textarea name="description"><%=tenndr.description%></textarea>
             <input type="submit" name="" value="Update" />
         </form>
         
@@ -48,3 +69,4 @@
 </body>
 
 </html>
+
