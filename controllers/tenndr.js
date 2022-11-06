@@ -11,6 +11,7 @@ tenndrRouter.get("/", (req, res) => {
     res.render("tenndr/dashboard.ejs", {
         tenndr: foundUser.tenndrs,
         currentUser: foundUser,
+        user: foundUser,
     });
     });
     } else {
