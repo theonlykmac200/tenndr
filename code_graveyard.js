@@ -165,3 +165,39 @@ myChart.update();
             <h1>
                 <%=tenndr.mood_after%>
             </h1>
+
+
+{/* dashboard */}
+
+<h2> Workout history</h2>
+        
+        <div>
+            <ul>
+                <% for (var i = 0; i < tenndr.length; i++) { %>
+                    <li>
+                        <a href="/tenndr/<%= tenndr[i]._id %>">
+                            <%= tenndr[i].workout %>
+                        </a>
+                    </li>
+                <% } %>
+            </ul>
+        </div>
+        <div>
+          <h2>Mood Chart</h2>
+            <ul>
+              <% for (var i = 0; i < tenndr.length; i++) { %>
+                  <li>
+                      <a href="/tenndr/<%= tenndr[i]._id %>">
+                          <%= tenndr[i].mood_after %>
+                      </a>
+                  </li>
+                  <% } %>
+            </ul>
+
+            <form action="/sessions?_method=DELETE" method="POST">
+                <input class ="waves-effect amber waves-light btn" type="submit" value="Log Out" />
+              </form>
+      <a class ="waves-effect amber waves-light btn" href="/tenndr/new"><span class="white-text darken-3">Add a workout</span></a>
+
+   
+      

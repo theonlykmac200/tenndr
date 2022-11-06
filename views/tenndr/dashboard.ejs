@@ -9,49 +9,60 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
         <link rel="stylesheet" href="./style.css" />
         <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+        <style>
+             h1, h3{
+      margin: center;
+      text-align: center;
+      font-size: 45px;
+    }
+        </style>
     </head>
-    <body>    
+    <body>  
         <div class="logo-container">
             <img src="./img/tenndr_logo.png" alt="logo" height="100px" width="200px"/>
         </div>
-    
-    
- 
-        <h1>Welcome <%=user.First_name%></h1>
-        
-        <h2> Workout history</h2>
-        
-        <div>
-            <ul>
-                <% for (var i = 0; i < tenndr.length; i++) { %>
-                    <li>
-                        <a href="/tenndr/<%= tenndr[i]._id %>">
-                            <%= tenndr[i].workout %>
-                        </a>
-                    </li>
-                <% } %>
-            </ul>
+        <h1>Welcome, <%=user.First_name%>!</h1>
+        <h3>Here Is Your Workout History</h3>     
+        <div class="container">
+            <div id="table-container">
+                <table class="highlight">
+                    <thead>
+                        <tr>
+                            <th>Workout Focus Area</th>
+                            <th>Duration</th>
+                            <th>Mood Before</th>
+                            <th>Mood After</th>
+                            <th>Notes</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% for (let i = 0; i < tenndr.length; i++) { %>
+                        <tr>
+                            <td><%=tenndr[i].workout%></td>
+                            <td><%=tenndr[i].duration_in_mins%></td>
+                            <td><%=tenndr[i].mood_before%></td>
+                            <td><%=tenndr[i].mood_after%></td>
+                            <td><%=tenndr[i].description%></td>
+                            <td>
+                                <button class ="waves-effect amber waves-light btn"><a href="/tenndr/<%=tenndr[i]._id%>/edit">Edit</a></button>
+                                <form action="/tenndr/<%=tenndr[i]._id%>?_method=DELETE" method="POST">
+                                    <input class ="waves-effect amber waves-light btn"  type="submit" value="Delete" />
+                                </form>
+                            </td>
+                        </tr>
+                        <% } %>
+                    </tbody>
+                </table>
+            </div>
         </div>
-        <div>
-          <h2>Mood Chart</h2>
-            <ul>
-              <% for (var i = 0; i < tenndr.length; i++) { %>
-                  <li>
-                      <a href="/tenndr/<%= tenndr[i]._id %>">
-                          <%= tenndr[i].mood_after %>
-                      </a>
-                  </li>
-                  <% } %>
-            </ul>
 
-            <form action="/sessions?_method=DELETE" method="POST">
-                <input class ="waves-effect amber waves-light btn" type="submit" value="Log Out" />
-              </form>
-      <a class ="waves-effect amber waves-light btn" href="/tenndr/new"><span class="white-text darken-3">Add a workout</span></a>
+        <form action="/sessions?_method=DELETE" method="POST">
+            <input class ="waves-effect amber waves-light btn" type="submit" value="Log Out" />
+          </form>
+        <a class ="waves-effect amber waves-light btn" href="/tenndr/new"><span class="white-text darken-3">Add a workout</span></a>
 
-   
-      
-
+    
       <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   </body>
 
