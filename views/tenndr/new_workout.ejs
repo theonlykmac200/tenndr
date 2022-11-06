@@ -30,13 +30,85 @@
         <div class="new-tenndr-container">
             <div class="row">
                 <form action="/tenndr" method="POST">
-                    <span class="bolded">Workout Focus Area:</span><input type="text" name="workout"/><br />
-                    <span class="bolded">Sets:</span><input type="text" name="sets" /><br />
-                    <span class="bolded">Reps:</span><input type="text" name="reps" /><br />
-                    <span class="bolded">Duration:</span><input type="number" name="duration_in_mins" /><br />
-                    <span class="bolded">Mood_before:</span><input type="text" name="mood_before" /><br />
-                    <span class="bolded">Mood_after:</span><input type="text" name="mood_after" /><br />
-                    <span class="bolded">Notes:</span><textarea name="description"></textarea><br />
+                  <label for="workout"></label>
+                    <input list="workout"><span class="bolded">Workout Focus Area:</span>
+                    <datalist id="workout" type="text" name="workout">
+                      <option value="Cardio">Cardio</option>
+                      <option value="Strength">Strength</option>
+                      <option value="Flexibility">Flexibility</option>
+                      <option value="Balance">Balance</option>
+                      <option value="Endurance">Endurance</option>
+                      <option value="Power">Power</option>
+                      <option value="Speed">Speed</option>
+                      <option value="Coordination">Coordination</option>
+                      <option value="Agility">Agility</option>
+                      <option value="Reaction Time">Reaction Time</option>
+                      <option value="Stamina">Stamina</option>
+                      <option value="Flexibility">Flexibility</option>
+                      <option value="Balance">Balance</option>
+                      <option value="Endurance">Endurance</option>
+                      <option value="Stamina">Stamina</option>
+                      <option value="Muscle Tone">Muscle Tone</option>
+                    </datalist></br>
+                    <input type="text" name="sets" />
+                    <span class="bolded">Sets:</span><br />
+                    <input type="text" name="reps" />
+                    <span class="bolded">Reps:</span><br />
+                    <input type="number" name="duration_in_mins" />
+                    <span class="bolded">Duration:</span><br />
+                    <input list="mood_before"><span class="bolded">Mood Before Workout:</span>
+                    <datalist id="mood_before" >
+                      <option value="Happy">Happy</option>
+                      <option value="Sad">Sad</option>
+                      <option value="Angry">Angry</option>
+                      <option value="Anxious">Anxious</option>
+                      <option value="Stressed">Stressed</option>
+                      <option value="Energetic">Energetic</option>
+                      <option value="Motivated">Motivated</option>
+                      <option value="Unmotivated">Unmotivated</option>
+                      <option value="Focused">Focused</option>
+                      <option value="Unfocused">Unfocused</option>
+                      <option value="Confident">Confident</option>
+                      <option value="Depressed">Depressed</option>
+                      <option value="Excited">Excited</option>
+                      <option value="Bored">Bored</option>
+                      <option value="Relaxed">Relaxed</option>
+                      <option value="Nervous">Nervous</option>
+                      <option value="Frustrated">Frustrated</option>
+                      <option value="Content">Content</option>
+                      <option value="Satisfied">Satisfied</option>
+                      <option value="Proud">Proud</option>
+                      <option value="Stressed">Stressed</option>
+                      <option value="Calm">Calm</option>
+                      <option value="Tired">Tired</option>
+                    </datalist></br>
+                    <input list="mood_after"><span class="bolded">Mood After Workout:</span>
+                    <datalist id="mood_after" >
+                      <option value="Happy">Happy</option>
+                      <option value="Sad">Sad</option>
+                      <option value="Angry">Angry</option>
+                      <option value="Anxious">Anxious</option>
+                      <option value="Stressed">Stressed</option>
+                      <option value="Energetic">Energetic</option>
+                      <option value="Motivated">Motivated</option>
+                      <option value="Unmotivated">Unmotivated</option>
+                      <option value="Focused">Focused</option>
+                      <option value="Unfocused">Unfocused</option>
+                      <option value="Confident">Confident</option>
+                      <option value="Depressed">Depressed</option>
+                      <option value="Excited">Excited</option>
+                      <option value="Bored">Bored</option>
+                      <option value="Relaxed">Relaxed</option>
+                      <option value="Nervous">Nervous</option>
+                      <option value="Frustrated">Frustrated</option>
+                      <option value="Content">Content</option>
+                      <option value="Satisfied">Satisfied</option>
+                      <option value="Proud">Proud</option>
+                      <option value="Stressed">Stressed</option>
+                      <option value="Calm">Calm</option>
+                      <option value="Tired">Tired</option>
+                    </datalist></br>
+                    <span class="bolded">Notes:</span><br />
                     
                     <input class="waves-effect amber waves-light btn" type="submit" name="" value="Add Workout"/>
                 </form>  
