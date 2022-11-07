@@ -7,7 +7,8 @@
     <title></title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Tenndr:Be Tenndr With Yourself</title>
-    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link rel="stylesheet" href="./style.css" />
     <style>
       body {
         margin: 50px 100px;
@@ -16,8 +17,7 @@
       }
       .row {
         margin: 0 auto;
-        top: 60%;
-        left: 50%;
+        width: 40%;
       }
       h1{
         margin: center;
@@ -41,21 +41,13 @@
             <div class="row">
                 <form action="/tenndr" method="POST">
                     <div class="input-field">
-                        <label for="workout">workout type</label>
-                        <input type="text" name="workout"/></br>
-                        <label for="sets">sets</label>
-                        <input type="text" name="sets"/></br>
-                        <label for="reps">reps</label>
-                        <input type="text" name="reps"/></br>
-                        <label for="difficulty">difficulty</label>
-                        <input type="text" name="difficulty" /></br>
-                        <label for="duration_in_mins">duration</label>
-                        <input type="text" name="duration_in_mins" /></br>
-                        <label for="mood_before">mood before</label>
-                        <input type="text" name="mood_before"/></br>
-                        <label for="mood_after">mood after</label>
-                        <input type="text" name="mood_after"/></br>
-                        <label for="description">notes</label>
+                        <span class="bolded">Workout Focus</span><input type="text" name="workout"/></br>
+                        <span class="bolded">Sets</span><input type="text" name="sets"/></br>
+                        <span class="bolded">Reps</span><input type="text" name="reps"/></br>
+                        <span class="bolded">Difficulty</span><input type="text" name="difficulty" /></br>
+                        <span class="bolded">Duration</span><input type="text" name="duration_in_mins" /></br>
+                        <span class="bolded">Mood before</span><input type="text" name="mood_before"/></br>
+                        <span class="bolded">Mood after</span><input type="text" name="mood_after"/></br>
                         <span class="bolded">Notes:</span><textarea name="description"></textarea><br />
                     
                     <input class="waves-effect amber waves-light btn" type="submit" name="" value="Add Workout"/>

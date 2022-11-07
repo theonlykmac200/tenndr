@@ -396,3 +396,18 @@ tenndrRouter.get("/:id", (req, res) => {
 })
 
 module.exports = tenndrRouter;
+
+
+
+
+//edit
+tenndrRouter.get("/:id/edit", (req, res) => {
+    User.findById(req.session.currentUser, (err, foundUser) => {
+        Tenndr.findById(req.params.id, (err, foundTenndr) => {
+            res.render("tenndr/edit_workout.ejs", {
+                tenndr: foundTenndr,
+                currentUser: foundUser,
+            })
+        })
+    })
+})

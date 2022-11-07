@@ -6,7 +6,6 @@ const User = require("../models/user")
 
 // index
 tenndrRouter.get("/", (req, res) => {
-    console.log(req.session.currentUser)
     if(req.session.currentUser) {
     User.findById(req.session.currentUser,(err, foundUser) => {
     res.render("tenndr/dashboard.ejs", {
@@ -44,11 +43,17 @@ tenndrRouter.delete("/:id", (req, res) => {
 //update
 tenndrRouter.put("/:id", (req, res) => {
     User.findById(req.session.currentUser, (err, foundUser) => {
-    User.findByIdAndUpdate(req.params.id, req.body, { new: true }, (err, updatedTenndr) => {
+    User.findByIdAndUpdate(
+        req.params.id, 
+        req.body, 
+        { new: true }, 
+        (err, updatedTenndr) => {
+            console.log(updatedTenndr)
         res.redirect("/tenndr");
     });
 });
 });
+
 
  
 //create
@@ -68,15 +73,13 @@ tenndrRouter.post("/", (req, res) => {
 
 //edit
 tenndrRouter.get("/:id/edit", (req, res) => {
-    User.findById(req.session.currentUser, (err, foundUser) => {
         Tenndr.findById(req.params.id, (err, foundTenndr) => {
             res.render("tenndr/edit_workout.ejs", {
+                currentUser: req.session.currentUser,
                 tenndr: foundTenndr,
-                currentUser: foundUser,
+            });
             })
-        })
-    })
-})
+        });
 
 
 //show
@@ -90,5 +93,6 @@ tenndrRouter.get("/:id", (req, res) => {
         })
     })
 })
+
 
 module.exports = tenndrRouter;

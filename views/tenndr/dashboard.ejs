@@ -45,6 +45,7 @@
                             <td><%=tenndr[i].mood_after%></td>
                             <td><%=tenndr[i].description%></td>
                             <td>
+                                <button class ="waves-effect amber waves-light btn"><a href="/tenndr/<%=tenndr[i]._id%>/">View</a></button>
                                 <button class ="waves-effect amber waves-light btn"><a href="/tenndr/<%=tenndr[i]._id%>/edit">Edit</a></button>
                                 <form action="/tenndr/<%=tenndr[i]._id%>?_method=DELETE" method="POST">
                                     <input class ="waves-effect amber waves-light btn"  type="submit" value="Delete" />
@@ -54,13 +55,14 @@
                         <% } %>
                     </tbody>
                 </table>
+                <a class ="waves-effect amber waves-light btn" href="/tenndr/new"><span class="white-text darken-3">Add a workout</span></a>
+                <form action="/sessions?_method=DELETE" method="POST">
+                    <input class ="waves-effect amber waves-light btn" type="submit" value="Log Out" />
+                  </form>
             </div>
         </div>
 
-        <form action="/sessions?_method=DELETE" method="POST">
-            <input class ="waves-effect amber waves-light btn" type="submit" value="Log Out" />
-          </form>
-        <a class ="waves-effect amber waves-light btn" href="/tenndr/new"><span class="white-text darken-3">Add a workout</span></a>
+        
    
       <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   </body>
