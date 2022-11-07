@@ -4,9 +4,7 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title></title>
-        <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
         <link rel="stylesheet" href="./style.css" />
         <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
         <style>
@@ -29,31 +27,11 @@
     </head>
     <body>    
         <div class="logo-container">
-            <img src="./img/tenndr_logo.png" alt="logo" height="100px" width="200px"/>
+            <img src="/img/tenndr_logo.png" alt="logo" height="100px" width="200px"/>
         </div>
-    
+        <h1>Workout</h1>
+        <h1><%=tenndr.workout%></h1>
 
-    <h1>
-        <%=tenndr.workout%>
-    </h1>
-    <h1>
-        <%=tenndr.sets%>
-    </h1>
-    <h1>
-        <%=tenndr.reps%>
-    </h1>
-    <h1>
-        <%=tenndr.duration_in_mins%>
-    </h1>
-    <h1>
-        <%=tenndr.mood_before%>
-    </h1>
-    <h1>
-        <%=tenndr.mood_after%>
-    </h1>
-    <h1>
-      <%=tenndr.description%>
-  </h1>
         </h2>
         <a class="waves-effect amber waves-light btn" href="/tenndr/<%=tenndr._id%>/edit"><span class="purple-text darken-3">Edit</span></a>
         <form class="waves-effect amber waves-light btn" action="/tenndr/<%=tenndr._id%>?_method=DELETE" method="POST">
@@ -71,7 +49,6 @@
 
 
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </body>
 
 </html>

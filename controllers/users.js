@@ -1,8 +1,7 @@
 const express = require("express");
-// const tenndrRouter = require("express").Router();
 const bcrypt = require("bcrypt");
 const User = require("../models/user.js");
-const userRouter = require("express").Router();
+const userRouter = express.Router();
 
 
 userRouter.get("/new", (req, res) => {

@@ -38,17 +38,6 @@ app.use("/users", userController)
 app.use("/sessions", sessionController)
 app.use(express.static("public"))
 
-//routes / controllers
-
-// const tenndrController = require("./controllers/tenndr");
-// app.use("/tenndr", tenndrController);
-
-// const userController = require("./controllers/users");
-// app.use("/users", userController);
-
-// const sessionController = require("./controllers/sessions");
-// app.use("/sessions", sessionController);
-
 
 app.listen(PORT, () => {
     console.log("Stay Sexy Don't Get Murdered!")

@@ -142,6 +142,91 @@ myChart.update();
                </ul>
 
 
+               <h1>New Workout</h1>
+        <div class="new-tenndr-container">
+            <div class="row">
+                <form action="/tenndr" method="POST">
+                  <label for="workout"></label>
+                    <input list="workout"><span class="bolded">Workout Focus Area:</span>
+                    <datalist id="workout" type="text" name="workout">
+                      <option value="Cardio">Cardio</option>
+                      <option value="Strength">Strength</option>
+                      <option value="Flexibility">Flexibility</option>
+                      <option value="Balance">Balance</option>
+                      <option value="Endurance">Endurance</option>
+                      <option value="Power">Power</option>
+                      <option value="Speed">Speed</option>
+                      <option value="Coordination">Coordination</option>
+                      <option value="Agility">Agility</option>
+                      <option value="Reaction Time">Reaction Time</option>
+                      <option value="Stamina">Stamina</option>
+                      <option value="Flexibility">Flexibility</option>
+                      <option value="Balance">Balance</option>
+                      <option value="Endurance">Endurance</option>
+                      <option value="Stamina">Stamina</option>
+                      <option value="Muscle Tone">Muscle Tone</option>
+                    </datalist></br>
+                    <input type="text" name="sets" />
+                    <span class="bolded">Sets:</span><br />
+                    <input type="text" name="reps" />
+                    <span class="bolded">Reps:</span><br />
+                    <input type="number" name="duration_in_mins" />
+                    <span class="bolded">Duration:</span><br />
+                    <input list="mood_before"><span class="bolded">Mood Before Workout:</span>
+                    <datalist id="mood_before" >
+                      <option value="Happy">Happy</option>
+                      <option value="Sad">Sad</option>
+                      <option value="Angry">Angry</option>
+                      <option value="Anxious">Anxious</option>
+                      <option value="Stressed">Stressed</option>
+                      <option value="Energetic">Energetic</option>
+                      <option value="Motivated">Motivated</option>
+                      <option value="Unmotivated">Unmotivated</option>
+                      <option value="Focused">Focused</option>
+                      <option value="Unfocused">Unfocused</option>
+                      <option value="Confident">Confident</option>
+                      <option value="Depressed">Depressed</option>
+                      <option value="Excited">Excited</option>
+                      <option value="Bored">Bored</option>
+                      <option value="Relaxed">Relaxed</option>
+                      <option value="Nervous">Nervous</option>
+                      <option value="Frustrated">Frustrated</option>
+                      <option value="Content">Content</option>
+                      <option value="Satisfied">Satisfied</option>
+                      <option value="Proud">Proud</option>
+                      <option value="Stressed">Stressed</option>
+                      <option value="Calm">Calm</option>
+                      <option value="Tired">Tired</option>
+                    </datalist></br>
+                    <input list="mood_after"><span class="bolded">Mood After Workout:</span>
+                    <datalist id="mood_after" >
+                      <option value="Happy">Happy</option>
+                      <option value="Sad">Sad</option>
+                      <option value="Angry">Angry</option>
+                      <option value="Anxious">Anxious</option>
+                      <option value="Stressed">Stressed</option>
+                      <option value="Energetic">Energetic</option>
+                      <option value="Motivated">Motivated</option>
+                      <option value="Unmotivated">Unmotivated</option>
+                      <option value="Focused">Focused</option>
+                      <option value="Unfocused">Unfocused</option>
+                      <option value="Confident">Confident</option>
+                      <option value="Depressed">Depressed</option>
+                      <option value="Excited">Excited</option>
+                      <option value="Bored">Bored</option>
+                      <option value="Relaxed">Relaxed</option>
+                      <option value="Nervous">Nervous</option>
+                      <option value="Frustrated">Frustrated</option>
+                      <option value="Content">Content</option>
+                      <option value="Satisfied">Satisfied</option>
+                      <option value="Proud">Proud</option>
+                      <option value="Stressed">Stressed</option>
+                      <option value="Calm">Calm</option>
+                      <option value="Tired">Tired</option>
+                    </datalist></br>
+                    <span class="bolded">Notes:</span><textarea></textarea><br />
+                    
+
 {/* /* //for db */ */}
 <h1>
         <%=tenndr.sets%>
@@ -200,4 +285,114 @@ myChart.update();
       <a class ="waves-effect amber waves-light btn" href="/tenndr/new"><span class="white-text darken-3">Add a workout</span></a>
 
    
-      
+      tenndrRouter.get("/:id", (req, res) => {
+    User.findById(req.session.currentUser, (err, foundUser) => {
+        Tenndr.findById(req.params.id, (err, foundWorkout) => {
+            res.render("tenndr/show_workout.ejs", {
+                tenndr: foundWorkout,
+                currentUser: foundUser,
+            })
+        })
+    })
+})
+
+//routes / controllers
+
+// const tenndrController = require("./controllers/tenndr");
+// app.use("/tenndr", tenndrController);
+
+// const userController = require("./controllers/users");
+// app.use("/users", userController);
+
+// const sessionController = require("./controllers/sessions");
+// app.use("/sessions", sessionController);
+
+
+//tenndr.js
+const express = require("express")
+const tenndrRouter = express.Router()
+const session = require("express-session")
+const Tenndr = require("../models/tenndr")
+const User = require("../models/user")
+
+// index
+tenndrRouter.get("/", (req, res) => {
+    if(req.session.currentUser) {
+    User.findById(req.session.currentUser,(err, foundUser) => {
+    res.render("tenndr/dashboard.ejs", {
+        tenndr: foundUser.tenndrs,
+        currentUser: foundUser,
+        user: foundUser,
+    });
+    });
+    } else {
+        res.render("tenndr/index.ejs", {
+            currentUser: req.session.currentUser,
+            });
+        } 
+    });
+
+
+
+// new
+tenndrRouter.get("/new", (req, res) => {
+    res.render("tenndr/new_workout.ejs", {
+        currentUser: req.session.currentUser,
+    });
+});
+//delete
+tenndrRouter.delete("/:id", (req, res) => {
+    User.findById(req.session.currentUser, (err, foundUser) => {
+        foundUser.tenndrs.id(req.params.id).remove();
+        foundUser.save((err, data) => {
+            res.redirect("/tenndr");
+        });
+    });
+});
+
+
+//update
+tenndrRouter.put("/:id", (req, res) => {
+    User.findById(req.session.currentUser, (err, foundUser) => {
+    User.findByIdAndUpdate(req.params.id, req.body, { new: true }, (err, updatedTenndr) => {
+        res.redirect("/tenndr");
+    });
+});
+});
+
+ 
+//create
+tenndrRouter.post("/", (req, res) => {
+        Tenndr.create(req.body, (err, createdTenndr) => {
+                res.redirect("/tenndr")
+            })
+        })
+
+
+
+//edit
+tenndrRouter.get("/:id/edit", (req, res) => {
+    User.findById(req.session.currentUser, (err, foundUser) => {
+        Tenndr.findById(req.params.id, (err, foundTenndr) => {
+            res.render("tenndr/edit_workout.ejs", {
+                tenndr: foundTenndr,
+                currentUser: foundUser,
+            })
+        })
+    })
+})
+
+
+//show
+tenndrRouter.get("/:id", (req, res) => {
+    User.findById(req.session.currentUser, (err, foundUser) => {
+        Tenndr.findById(req.params.id, (err, foundTenndr) => {
+            res.render("tenndr/show_workout.ejs", { 
+                tenndr: foundTenndr,
+                currentUser: foundUser,
+            })
+        })
+    })
+})
+
+module.exports = tenndrRouter;

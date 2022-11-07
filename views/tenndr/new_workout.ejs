@@ -1,114 +1,62 @@
 <!DOCTYPE html>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-<link rel="stylesheet" href="./style.css" />
-<style>
-    body {
-      margin: 20px 100px;
-      background-color: rgb(2, 76, 2);
-      color: white;
-    }
-    .row {
-      position: fixed;
-      top: 60%;
-      left: 50%;
-        transform: translate(-50%, -50%);
-    }
-    h1{
-      margin: center;
-      text-align: center;
-      font-size: 45px;
-    }
-  </style>
-</head>
+<html>
 
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Tenndr:Be Tenndr With Yourself</title>
+    <link rel="stylesheet" href="./style.css" />
+    <style>
+      body {
+        margin: 50px 100px;
+        background-color: rgb(2, 76, 2);
+        color: white;
+      }
+      .row {
+        margin: 0 auto;
+        top: 60%;
+        left: 50%;
+      }
+      h1{
+        margin: center;
+        text-align: center;
+        font-size: 35px;
+      }
+      .notes-box{
+        width: 500px;
+        height: 200px;
+      }
+    </style>
+  
+</head>
 <body>
 
-<div class="logo-container">
-<img src="./img/tenndr_logo.png" alt="logo" height="200px" width="350   px"/>
-</div>
+  <div class="logo-container">
+    <img src="/img/tenndr_logo.png" alt="logo" height="100px" width="200px"/>
+  </div>
         <h1>New Workout</h1>
         <div class="new-tenndr-container">
             <div class="row">
                 <form action="/tenndr" method="POST">
-                  <label for="workout"></label>
-                    <input list="workout"><span class="bolded">Workout Focus Area:</span>
-                    <datalist id="workout" type="text" name="workout">
-                      <option value="Cardio">Cardio</option>
-                      <option value="Strength">Strength</option>
-                      <option value="Flexibility">Flexibility</option>
-                      <option value="Balance">Balance</option>
-                      <option value="Endurance">Endurance</option>
-                      <option value="Power">Power</option>
-                      <option value="Speed">Speed</option>
-                      <option value="Coordination">Coordination</option>
-                      <option value="Agility">Agility</option>
-                      <option value="Reaction Time">Reaction Time</option>
-                      <option value="Stamina">Stamina</option>
-                      <option value="Flexibility">Flexibility</option>
-                      <option value="Balance">Balance</option>
-                      <option value="Endurance">Endurance</option>
-                      <option value="Stamina">Stamina</option>
-                      <option value="Muscle Tone">Muscle Tone</option>
-                    </datalist></br>
-                    <input type="text" name="sets" />
-                    <span class="bolded">Sets:</span><br />
-                    <input type="text" name="reps" />
-                    <span class="bolded">Reps:</span><br />
-                    <input type="number" name="duration_in_mins" />
-                    <span class="bolded">Duration:</span><br />
-                    <input list="mood_before"><span class="bolded">Mood Before Workout:</span>
-                    <datalist id="mood_before" >
-                      <option value="Happy">Happy</option>
-                      <option value="Sad">Sad</option>
-                      <option value="Angry">Angry</option>
-                      <option value="Anxious">Anxious</option>
-                      <option value="Stressed">Stressed</option>
-                      <option value="Energetic">Energetic</option>
-                      <option value="Motivated">Motivated</option>
-                      <option value="Unmotivated">Unmotivated</option>
-                      <option value="Focused">Focused</option>
-                      <option value="Unfocused">Unfocused</option>
-                      <option value="Confident">Confident</option>
-                      <option value="Depressed">Depressed</option>
-                      <option value="Excited">Excited</option>
-                      <option value="Bored">Bored</option>
-                      <option value="Relaxed">Relaxed</option>
-                      <option value="Nervous">Nervous</option>
-                      <option value="Frustrated">Frustrated</option>
-                      <option value="Content">Content</option>
-                      <option value="Satisfied">Satisfied</option>
-                      <option value="Proud">Proud</option>
-                      <option value="Stressed">Stressed</option>
-                      <option value="Calm">Calm</option>
-                      <option value="Tired">Tired</option>
-                    </datalist></br>
-                    <input list="mood_after"><span class="bolded">Mood After Workout:</span>
-                    <datalist id="mood_after" >
-                      <option value="Happy">Happy</option>
-                      <option value="Sad">Sad</option>
-                      <option value="Angry">Angry</option>
-                      <option value="Anxious">Anxious</option>
-                      <option value="Stressed">Stressed</option>
-                      <option value="Energetic">Energetic</option>
-                      <option value="Motivated">Motivated</option>
-                      <option value="Unmotivated">Unmotivated</option>
-                      <option value="Focused">Focused</option>
-                      <option value="Unfocused">Unfocused</option>
-                      <option value="Confident">Confident</option>
-                      <option value="Depressed">Depressed</option>
-                      <option value="Excited">Excited</option>
-                      <option value="Bored">Bored</option>
-                      <option value="Relaxed">Relaxed</option>
-                      <option value="Nervous">Nervous</option>
-                      <option value="Frustrated">Frustrated</option>
-                      <option value="Content">Content</option>
-                      <option value="Satisfied">Satisfied</option>
-                      <option value="Proud">Proud</option>
-                      <option value="Stressed">Stressed</option>
-                      <option value="Calm">Calm</option>
-                      <option value="Tired">Tired</option>
-                    </datalist></br>
-                    <span class="bolded">Notes:</span><br />
+                    <div class="input-field">
+                        <label for="workout">workout type</label>
+                        <input type="text" name="workout"/></br>
+                        <label for="sets">sets</label>
+                        <input type="text" name="sets"/></br>
+                        <label for="reps">reps</label>
+                        <input type="text" name="reps"/></br>
+                        <label for="difficulty">difficulty</label>
+                        <input type="text" name="difficulty" /></br>
+                        <label for="duration_in_mins">duration</label>
+                        <input type="text" name="duration_in_mins" /></br>
+                        <label for="mood_before">mood before</label>
+                        <input type="text" name="mood_before"/></br>
+                        <label for="mood_after">mood after</label>
+                        <input type="text" name="mood_after"/></br>
+                        <label for="description">notes</label>
+                        <span class="bolded">Notes:</span><textarea name="description"></textarea><br />
                     
                     <input class="waves-effect amber waves-light btn" type="submit" name="" value="Add Workout"/>
                 </form>  
@@ -121,5 +69,4 @@
 
 
 
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     </body>

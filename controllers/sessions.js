@@ -3,7 +3,7 @@ const tenndrRouter = require ("express").Router();
 const bcrypt = require("bcrypt");
 const User = require("../models/user.js");
 const Tenndr = require("../models/tenndr.js");
-const sessionRouter = require ("express").Router();
+const sessionRouter = express.Router();
 
 
 
