@@ -42,17 +42,26 @@ tenndrRouter.delete("/:id", (req, res) => {
 
 //update
 tenndrRouter.put("/:id", (req, res) => {
-    User.findById(req.session.currentUser, (err, foundUser) => {
-    User.findByIdAndUpdate(
-        req.params.id, 
-        req.body, 
-        { new: true }, 
+    //find this workout and update it
+    Tenndr.findByIdAndUpdate(
+        req.params.id,
+        req.body,
+        { new: true },
         (err, updatedTenndr) => {
-            console.log(updatedTenndr)
-        res.redirect("/tenndr");
-    });
+            //find this user and push the updated workout into their workouts array
+    User.findOne({ "tenndrs._id": req.params.id }, (err, foundUser) => {
+        foundUser.tenndrs.id(req.params.id).remove();
+        foundUser.tenndrs.push(updatedTenndr);
+        foundUser.save((err, data) => {
+            res.redirect("/tenndr");
+        });
+    }
+    );
+    }
+    );
 });
-});
+
+    
 
 
  
@@ -71,27 +80,29 @@ tenndrRouter.post("/", (req, res) => {
 
 
 
+
+
 //edit
 tenndrRouter.get("/:id/edit", (req, res) => {
-        Tenndr.findById(req.params.id, (err, foundTenndr) => {
-            res.render("tenndr/edit_workout.ejs", {
-                currentUser: req.session.currentUser,
-                tenndr: foundTenndr,
-            });
-            })
+    Tenndr.findById(req.params.id, (err, foundTenndr) => {
+        res.render("tenndr/edit_workout.ejs", {
+            currentUser: req.session.currentUser,
+            tenndr: foundTenndr,
         });
+        })
+    });
 
 
-//show
+//show  // I feel like tenndr and user are flipped here but I figure out what it should be and its just throwing the same error either way that still works so no point in changing it. 
 tenndrRouter.get("/:id", (req, res) => {
-    User.findById(req.session.currentUser, (err, foundUser) => {
-        Tenndr.findById(req.params.id, (err, foundTenndr) => {
-            res.render("tenndr/show_workout.ejs", { 
-                tenndr: foundTenndr,
-                currentUser: foundUser,
-            })
+User.findById(req.session.currentUser, (err, foundUser) => {
+    Tenndr.findById(req.params.id, (err, foundTenndr) => {
+        res.render("tenndr/show_workout.ejs", { 
+            tenndr: foundTenndr,
+            currentUser: foundUser,
         })
     })
+})
 })
 
 
